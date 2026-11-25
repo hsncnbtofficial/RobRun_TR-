@@ -11,6 +11,7 @@ release/
 # These are rebuilt at runtime from the player's copy of the game and must not be redistributed.
 out/
 work/
+work_*/
 data/strings_en.json
 data/game_data.json
 *.bundle

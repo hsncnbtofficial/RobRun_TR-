@@ -6,7 +6,7 @@
 
 ## Özellikler
 
-- **Tam Türkçe**: menüler, ayarlar, eşyalar, NPC diyalogları, ipuçları, Kodeks (4.763 metin).
+- **Tam Türkçe**: menüler, ayarlar, eşyalar, NPC diyalogları, ipuçları, Kodeks (4.879 metin, oyunun 0.7 güncellemesi dahil).
 - **Türkçe harfler**: oyunun 5 fontuna `İ ı Ş ş Ğ ğ` (gerekenlere `Ç Ö Ü â î û`) eklenir. Harfler fontun kendi glifleriyle birleştirildiği için stil birebir aynıdır. Türkçe Windows'ta İngilizce oyunda bile görülen "GRAPH CS" (kayıp İ) sorunu da düzelir.
 - **Oyun içi rehber**: mekân, anahtar ve değerli eşya açıklamalarına değer/risk/gereken alet satırı (`REHBER`).
 - **Program** (`RobRun_Turkce.exe`):
