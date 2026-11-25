@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "robrun_tr"))
 from winpaths import special_folder  # noqa: E402
 
 APP_NAME = "ROB RUN Türkçe"
-APP_VERSION = "1.3.0"
+APP_VERSION = "1.3.1"
 PUBLISHER = "RobRun TR"
 APP_EXE = "RobRun_Turkce.exe"
 REG_KEY = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\RobRunTR"

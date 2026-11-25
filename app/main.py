@@ -25,7 +25,7 @@ import live  # noqa: E402
 from common import (CACHE_DIR, DATA_DIR, FONT_BUNDLE, MANIFEST, OUT_DIR, STEAM_APPID, USER_DIR,  # noqa: E402
                     bundle_dir, find_game_dir, load_json, save_json)
 
-APP_VERSION = "1.3.0"
+APP_VERSION = "1.3.1"
 UI = ROOT / "app" / "ui" / "index.html"
 STATE = USER_DIR / "state.json"
 FONT_SRC_MD5 = OUT_DIR / "fonts_tr.src.md5"
