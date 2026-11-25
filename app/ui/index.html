@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROB RUN Türkçe</title>
+<style>
+:root{
+  --bg:#16171a; --panel:#1f2024; --panel2:#26282d; --line:#34363c;
+  --text:#ececec; --muted:#8d9097; --accent:#c5fb31; --accent-ink:#141500;
+  --warn:#ffb340; --danger:#ff5a4f; --ok:#5fd38d;
+  --r:10px;
+  --font:"Bahnschrift","Segoe UI",system-ui,sans-serif;
+  --cond:"Bahnschrift SemiCondensed","Bahnschrift","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px}
+button{font-family:inherit}
+.app{display:grid;grid-template-columns:230px 1fr;height:100vh}
+nav{background:#111214;border-right:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;gap:4px}
+.brand{font-family:var(--cond);font-size:26px;font-weight:700;letter-spacing:.5px;line-height:1;margin:0 8px 4px;font-style:italic}
+.brand span{color:var(--accent)}
+.sub{color:var(--muted);font-size:12px;margin:0 8px 22px}
+.tab{all:unset;cursor:pointer;padding:11px 12px;border-radius:8px;color:#c9cbd0;font-family:var(--cond);font-size:16px;text-transform:uppercase;letter-spacing:.4px;display:flex;gap:10px;align-items:center}
+.tab:hover{background:var(--panel)}
+.tab.on{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.tab .dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.6}
+nav .foot{margin-top:auto;color:var(--muted);font-size:11px;padding:0 8px;line-height:1.5}
+main{overflow:auto;padding:28px 34px 40px}
+h1{font-family:var(--cond);font-size:34px;margin:0 0 4px;text-transform:uppercase;font-style:italic;letter-spacing:.5px}
+.lead{color:var(--muted);margin:0 0 22px;max-width:760px;line-height:1.5}
+h2{font-family:var(--cond);font-size:18px;text-transform:uppercase;letter-spacing:.5px;margin:26px 0 10px;color:#d8dade}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.btn{border:0;cursor:pointer;border-radius:8px;padding:12px 18px;font-size:15px;font-family:var(--cond);text-transform:uppercase;letter-spacing:.4px;background:var(--panel2);color:var(--text)}
+.btn:hover{filter:brightness(1.15)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.danger{background:transparent;border:1px solid #5a2a28;color:var(--danger)}
+.btn:disabled{opacity:.45;cursor:default;filter:none}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;background:var(--panel2);color:#cfd1d6}
+.pill.ok{background:rgba(95,211,141,.15);color:var(--ok)}
+.pill.warn{background:rgba(255,179,64,.15);color:var(--warn)}
+.pill.bad{background:rgba(255,90,79,.15);color:var(--danger)}
+.status{display:flex;gap:18px;align-items:center}
+.status .big{font-family:var(--cond);font-size:22px;text-transform:uppercase}
+.muted{color:var(--muted)}
+.log{margin-top:14px;background:#0e0f11;border:1px solid var(--line);border-radius:8px;padding:12px;height:200px;overflow:auto;font-family:Consolas,monospace;font-size:12px;color:#b8bcc4;white-space:pre-wrap}
+label.chk{display:flex;gap:10px;align-items:center;cursor:pointer;user-select:none}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+input[type=number],select,input[type=search]{background:#121316;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:9px 11px;font-family:inherit;font-size:14px}
+.meter{display:inline-flex;gap:3px;vertical-align:middle}
+.meter i{width:9px;height:9px;border-radius:2px;background:#3a3c42}
+.meter.v i.f{background:var(--accent)}
+.meter.r i.f{background:var(--danger)}
+.tcard h3{margin:0 0 2px;font-family:var(--cond);font-size:19px;text-transform:uppercase}
+.tcard .area{color:var(--muted);font-size:12px;margin-bottom:10px}
+.kv{display:grid;grid-template-columns:70px 1fr;gap:6px 10px;font-size:13px;margin-bottom:10px}
+.kv b{color:var(--muted);font-weight:400}
+.loot{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.loot span{background:var(--panel2);border-radius:6px;padding:3px 8px;font-size:12px}
+.loot span em{font-style:normal;color:var(--accent);margin-left:4px}
+.tip{border-left:3px solid var(--accent);padding:6px 10px;color:#cfd2d7;font-size:13px;line-height:1.45;background:rgba(197,251,49,.05);border-radius:0 6px 6px 0}
+.need{color:var(--warn)}
+.tag-ok{color:var(--ok)}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.stage:first-child{border-top:0}
+.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--cond);font-size:20px;background:var(--panel2);color:var(--muted)}
+.stage.cur .num{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.stage.done .num{background:rgba(95,211,141,.18);color:var(--ok)}
+.stage h3{margin:2px 0 2px;font-family:var(--cond);text-transform:uppercase;font-size:18px}
+.stage ul{margin:8px 0 0;padding-left:18px;line-height:1.6;color:#d3d5da}
+.next{display:grid;gap:8px}
+.next div{background:var(--panel2);border-radius:8px;padding:11px 14px;display:flex;gap:10px;align-items:flex-start}
+.next div b{color:var(--accent);font-family:var(--cond);font-size:16px}
+.two{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:18px;align-items:start}
+.list{display:grid;gap:8px}
+.list .it{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.list .it h4{margin:0 0 4px;font-size:15px}
+.list .it p{margin:0;color:#c3c6cc;font-size:13px;line-height:1.45}
+.up{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.up .n{font-family:var(--cond);font-size:22px;color:var(--muted);width:28px;text-align:center}
+.up.done{opacity:.55}
+.up.done .n{color:var(--ok)}
+.up.first{border-color:var(--accent)}
+.hidden{display:none}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5}
+/* ---- Başlangıç Rehberi ---- */
+.sg-progress{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.sg-bar{flex:1;height:10px;background:var(--panel2);border-radius:99px;overflow:hidden}
+.sg-bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .35s}
+#sg-count{font-family:var(--cond);font-size:16px;color:var(--muted);white-space:nowrap}
+.sg-wrap{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+.sg{display:flex;gap:14px;align-items:center;padding:11px 14px;border-radius:10px;color:var(--muted);cursor:pointer}
+.sg:hover{background:var(--panel)}
+.sg .n{width:32px;height:32px;flex:none;border-radius:50%;display:grid;place-items:center;font-family:var(--cond);font-weight:700;background:var(--panel2)}
+.sg .t{font-family:var(--cond);font-size:17px;text-transform:uppercase;letter-spacing:.3px}
+.sg.done{color:#7f8a86}
+.sg.done .n{background:rgba(95,211,141,.16);color:var(--ok)}
+.sg.done .t{text-decoration:line-through;text-decoration-color:#4a4d53}
+.sg.cur{display:block;cursor:default;background:var(--panel);border:1px solid var(--accent);padding:22px 24px;margin:8px 0 12px;color:var(--text);box-shadow:0 12px 34px rgba(197,251,49,.07)}
+.sg.cur .head{display:flex;gap:16px;align-items:center}
+.sg.cur .n{width:46px;height:46px;font-size:22px;background:var(--accent);color:var(--accent-ink)}
+.sg.cur .emo{font-size:30px}
+.sg.cur .t{font-size:26px}
+.sg.cur .what{font-size:16px;line-height:1.55;margin:14px 0 0;color:#e2e4e8}
+.sg.cur .hint{margin-top:12px;padding:10px 12px;border-radius:8px;background:rgba(197,251,49,.06);color:#cfd2d7;font-size:14px;line-height:1.5}
+.sg.cur .hint b{color:var(--accent)}
+.sg.cur .acts{display:flex;gap:10px;margin-top:18px}
+.sg-rules{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;position:sticky;top:0}
+.sg-rules h3{margin:0 0 10px;font-family:var(--cond);font-size:18px;text-transform:uppercase;color:var(--accent)}
+.sg-rules ol{margin:0;padding-left:20px;line-height:1.55;color:#cfd2d7;font-size:14px}
+.sg-rules li{margin-bottom:8px}
+.sg-rules b{color:var(--text)}
+.sg-finish{background:var(--panel);border:1px solid var(--accent);border-radius:var(--r);padding:24px;margin:8px 0}
+.sg-finish h3{margin:0 0 6px;font-family:var(--cond);font-size:26px;text-transform:uppercase;color:var(--accent)}
+@media (max-width:900px){.sg-wrap{grid-template-columns:1fr}}
+/* ---- live game link ---- */
+.livebar{display:flex;align-items:center;gap:10px;background:#0f1012;border:1px solid var(--line);border-radius:8px;padding:9px 14px;margin:10px 0 4px;font-size:13px;color:var(--muted)}
+.livebar .ldot{width:10px;height:10px;border-radius:50%;background:#55585f;flex:none}
+.livebar.on{border-color:#2f5a3e;color:#cfe9d8}
+.livebar.on .ldot{background:var(--ok);box-shadow:0 0 0 0 rgba(95,211,141,.6);animation:pulse 1.6s infinite}
+.livebar.warn{border-color:#5a4a26;color:var(--warn)}
+.livebar.warn .ldot{background:var(--warn)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,211,141,.55)}70%{box-shadow:0 0 0 9px rgba(95,211,141,0)}100%{box-shadow:0 0 0 0 rgba(95,211,141,0)}}
+.src{font-style:normal;color:var(--ok);margin-left:6px;letter-spacing:.5px}
+.bagline{display:block;font-family:var(--cond);font-size:12px;color:var(--muted);margin-top:2px}
+/* ---- Durumum HUD ---- */
+.hud{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:6px}
+.hud-title{display:flex;align-items:center;gap:14px}
+.hud-title h1{margin:0}
+.stats{display:flex;gap:10px}
+.stat{background:#0f1012;border:1px solid var(--line);border-radius:8px;padding:9px 14px;min-width:150px;cursor:text;display:block}
+.stat span{display:block;font-family:var(--cond);font-size:11px;letter-spacing:1px;color:var(--muted)}
+.stat input,.stat select{all:unset;width:100%;font-family:var(--cond);font-weight:700;font-size:24px;color:var(--text)}
+.stat select{cursor:pointer}
+.stat .sv{display:flex;align-items:baseline;font-family:var(--cond);font-size:24px;font-weight:700;color:var(--ok)}
+.stat .sv input{color:var(--ok);width:110px}
+.stat .sv em{font-style:normal;font-size:13px;color:var(--muted);margin-left:2px}
+.stat.money{min-width:200px;border-color:#4a5a1a;background:linear-gradient(180deg,#151810,#0f1012)}
+.cashbox{display:flex;align-items:baseline;font-family:var(--cond);font-size:30px;font-weight:700;color:var(--accent)}
+.cashbox input{color:var(--accent);font-size:30px}
+.recs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.rec{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;display:flex;flex-direction:column;gap:8px}
+.rec.first{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset,0 10px 30px rgba(197,251,49,.06)}
+.rec .rno{position:absolute;top:-10px;left:14px;background:var(--panel2);color:var(--muted);font-family:var(--cond);font-weight:700;padding:1px 9px;border-radius:5px;font-size:13px}
+.rec.first .rno{background:var(--accent);color:var(--accent-ink)}
+.rec .cat{font-family:var(--cond);font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:4px}
+.rec h3{margin:0;font-family:var(--cond);font-size:21px;text-transform:uppercase;line-height:1.1}
+.rec p{margin:0;color:#c8cbd1;font-size:13px;line-height:1.45}
+.price{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.price .pin{display:flex;align-items:center;background:#0f1012;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-family:var(--cond);font-size:15px}
+.price .pin input{all:unset;width:84px;font-family:var(--cond);font-size:15px;font-weight:700}
+.badge{font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:.4px;padding:4px 9px;border-radius:5px;text-transform:uppercase}
+.badge.yes{background:var(--accent);color:var(--accent-ink)}
+.badge.no{background:rgba(255,179,64,.14);color:var(--warn)}
+.badge.unk{background:var(--panel2);color:var(--muted)}
+.rec .done-btn{align-self:flex-start}
+.btn.sm{padding:7px 12px;font-size:13px}
+.owngrid{display:grid;gap:14px}
+.owngrp b{display:block;font-family:var(--cond);font-size:12px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{all:unset;cursor:pointer;padding:7px 11px;border-radius:7px;background:var(--panel);border:1px solid var(--line);font-size:13px;color:#cfd2d7}
+.chip:hover{border-color:#50535a}
+.chip.on{background:rgba(197,251,49,.12);border-color:var(--accent);color:var(--accent)}
+.chip.on::before{content:"✓ "}
+.fitrow{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.fitrow h4{margin:0;font-family:var(--cond);font-size:17px;text-transform:uppercase}
+.fitrow .sub{grid-column:1/-1;color:var(--muted);font-size:12px}
+.fitrow .loot{margin:2px 0 0;grid-column:1/-1}
+@media (max-width:900px){.app{grid-template-columns:1fr}nav{flex-direction:row;overflow:auto}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">ROB RUN <span>TR</span></div>
+    <div class="sub">Türkçe yama + suç rehberi</div>
+    <button class="tab on" data-tab="patch"><span class="dot"></span>Türkçe Yama</button>
+    <button class="tab" data-tab="start"><span class="dot"></span>Başlangıç Rehberi</button>
+    <button class="tab" data-tab="plan"><span class="dot"></span>Durumum</button>
+    <button class="tab" data-tab="targets"><span class="dot"></span>Soygun Hedefleri</button>
+    <button class="tab" data-tab="keys"><span class="dot"></span>Anahtar ve Aletler</button>
+    <button class="tab" data-tab="ups"><span class="dot"></span>Yükseltmeler</button>
+    <div class="foot" id="ver">Oyun klasörü değiştirilmez.<br>Kurulum AppData önbelleğine yapılır.</div>
+  </nav>
+
+  <main>
+    <!-- PATCH -->
+    <section id="patch">
+      <h1>Türkçe Yama</h1>
+      <p class="lead">Tek tıkla bütün oyunu Türkçeye çevirir, fontlara Türkçe harfleri ekler ve oyun içine rehber ipuçları koyar. Oyun güncellenince tekrar "Kur" demen yeterli; yama yeni sürüme kendini uyarlar.</p>
+      <div class="card">
+        <div class="status">
+          <div><div class="big" id="st-title">Kontrol ediliyor…</div><div class="muted" id="st-sub"></div></div>
+          <div style="margin-left:auto" id="st-pill"></div>
+        </div>
+        <div class="row" style="margin-top:18px">
+          <button class="btn primary" id="b-install-launch">Kur ve Oyunu Başlat</button>
+          <button class="btn" id="b-install">Sadece Kur</button>
+          <button class="btn" id="b-launch">Oyunu Başlat</button>
+          <button class="btn danger" id="b-uninstall" style="margin-left:auto">Yamayı Kaldır</button>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <label class="chk"><input type="checkbox" id="opt-hints" checked> Oyun içi rehber ipuçlarını ekle (mekân, anahtar ve eşya açıklamalarına değer/risk/gerekenler)</label>
+        </div>
+        <div class="log" id="log">Hazır.</div>
+      </div>
+    </section>
+
+    <!-- BAŞLANGIÇ REHBERİ -->
+    <section id="start" class="hidden">
+      <h1>Başlangıç Rehberi</h1>
+      <p class="lead">Hiç bilmiyorsan buradan başla. Her seferinde tek adım: yap, “Yaptım” de, sıradakine geç.</p>
+      <div class="sg-progress"><div class="sg-bar"><i id="sg-fill"></i></div><span id="sg-count"></span></div>
+      <div class="sg-wrap">
+        <div id="sg-steps"></div>
+        <aside class="sg-rules">
+          <h3>4 altın kural</h3>
+          <ol>
+            <li><b>Maskeyi kimse görmeden tak.</b> Çalışanlar seni görürse polisi arar.</li>
+            <li><b>Az al, sık sat.</b> Suçluyken ölürsen çantandaki her şey gider.</li>
+            <li><b>Polis yakaladıysa teslim ol (Q).</b> Sadece çanta gider, silahın ve yeleğin kalır.</li>
+            <li><b>Parayı akla.</b> Banka hesabındaki para çalınamaz.</li>
+          </ol>
+          <button class="btn sm" id="sg-reset" style="margin-top:10px">Rehberi baştan başlat</button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PLAN / DURUMUM -->
+    <section id="plan" class="hidden">
+      <div class="hud">
+        <div class="hud-title"><h1>Durumum</h1><span class="pill" id="stage-pill"></span></div>
+        <div class="stats">
+          <label class="stat money"><span>NAKİT <i id="cash-src" class="src"></i></span><div class="cashbox">$<input type="text" inputmode="numeric" id="cash" placeholder="0"></div><small id="bag-line" class="bagline"></small></label>
+          <label class="stat"><span>SAATLİK KAZANÇ <i id="inc-src" class="src"></i></span><div class="sv">+$<input type="text" inputmode="numeric" id="income" placeholder="0"><em>/sa</em></div></label>
+          <label class="stat"><span>NAM SEVİYESİ</span><div class="sv"><select id="nam"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div></label>
+        </div>
+      </div>
+      <div class="livebar" id="livebar"><span class="ldot"></span><span id="live-text">Oyun algılanıyor…</span></div>
+      <p class="lead" id="advice-line">Oyundaki nakdini ve satın aldıklarını gir; sana sırayla ne alman gerektiğini göstereyim.</p>
+
+      <h2>Şu an yapman gerekenler</h2>
+      <div class="recs" id="recs"></div>
+
+      <div class="two" style="margin-top:8px">
+        <div>
+          <h2>Para kazanmak için şimdi</h2>
+          <div class="list" id="fit"></div>
+        </div>
+        <div>
+          <h2>Satın aldıkların</h2>
+          <div id="owned"></div>
+        </div>
+      </div>
+
+      <h2>Aşamalar</h2>
+      <div class="card"><div id="stages"></div></div>
+      <div class="note">Para ve satın almalar oyun sunucusunda tutulduğu için program bunları otomatik okuyamaz (oyunun belleğini okumak anti-cheat ihlali olur). Fiyatları bir kez girmen yeterli, program hatırlar. Fiyatlar: dizüstü bilgisayar &gt; Karaborsa / Sevkiyatlar.</div>
+    </section>
+
+    <!-- TARGETS -->
+    <section id="targets" class="hidden">
+      <h1>Soygun Hedefleri</h1>
+      <p class="lead">Looty Bay'deki her mekân: ne çıkar, ne kadar değerli, ne kadar riskli, hangi anahtar ve alet gerekir.</p>
+      <div class="filters">
+        <input type="search" id="q" placeholder="Mekân veya eşya ara…" style="min-width:240px">
+        <select id="f-area"><option value="">Tüm bölgeler</option></select>
+        <select id="f-sort"><option value="ratio">Sırala: değer/risk</option><option value="value">Sırala: değer</option><option value="risk">Sırala: düşük risk</option></select>
+        <label class="chk"><input type="checkbox" id="f-can"> Sadece yapabileceklerim</label>
+      </div>
+      <div class="grid" id="tgrid"></div>
+    </section>
+
+    <!-- KEYS -->
+    <section id="keys" class="hidden">
+      <h1>Anahtar ve Aletler</h1>
+      <p class="lead">Hangi anahtar nereyi açar, büyük soygun aletleri nasıl elde edilir? Takas, Lenny's Motel'deki <b>Şüpheli Kapı</b>'da yapılır.</p>
+      <h2>Takas zincirleri ve aletler</h2>
+      <div class="grid" id="tools"></div>
+      <h2>Anahtarlar</h2>
+      <div class="grid" id="keylist"></div>
+    </section>
+
+    <!-- UPGRADES -->
+    <section id="ups" class="hidden">
+      <h1>Yükseltmeler</h1>
+      <p class="lead">Mantıklı satın alma sırası. "Durumum"da işaretlediklerin burada tamamlanmış görünür; önkoşulu tamam olan ilk eksik vurgulanır.</p>
+      <div class="list" id="uplist"></div>
+    </section>
+  </main>
+</div>
+
+<script>
+// ---------------- bridge (pywebview, with a browser fallback for previews) ----------------
+const hasApi = () => window.pywebview && window.pywebview.api;
+const api = new Proxy({}, {get: (_, name) => async (...a) => {
+  if (hasApi()) return window.pywebview.api[name](...a);
+  if (name === "guide") return (await fetch("../../data/guide.json")).json();
+  if (name === "status") return {game: "(önizleme)", installed: true, catalog: "preview", version: "dev"};
+  if (name === "load_state") { try { return JSON.parse(localStorage.getItem("rr_state") || "{}"); } catch { return {}; } }
+  if (name === "save_state") { try { localStorage.setItem("rr_state", JSON.stringify(a[0])); } catch {} return true; }
+  if (name === "poll") return {busy: false, log: ["Önizleme modu: kurulum yalnızca programda çalışır."]};
+  if (name === "live") {
+    if (!location.search.includes("mock")) return {running: false};
+    const t = Date.now() / 1000;
+    return {running: true, visible: true, focused: true, cash: 21350, cash_at: t - 4, bag: 1440, bag_at: t - 30, prices: {minidrill: 3500}};
+  }
+  return true;
+}});
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const meter = (n, cls) => `<span class="meter ${cls}">${[1,2,3,4,5].map(i => `<i class="${i<=n?'f':''}"></i>`).join("")}</span>`;
+
+// ---------------- tabs ----------------
+document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === b));
+  document.querySelectorAll("main section").forEach(s => s.classList.toggle("hidden", s.id !== b.dataset.tab));
+});
+
+// ---------------- patch tab ----------------
+async function refreshStatus(){
+  const s = await api.status();
+  const pill = $("#st-pill");
+  if (!s.game){ $("#st-title").textContent = "Oyun bulunamadı"; $("#st-sub").textContent = "Rob Run Steam üzerinden kurulu olmalı.";
+    pill.innerHTML = `<span class="pill bad">Bulunamadı</span>`; return; }
+  $("#st-sub").textContent = s.game;
+  if (s.installed){ $("#st-title").textContent = "Türkçe yama kurulu"; pill.innerHTML = `<span class="pill ok">Aktif</span>`; }
+  else if (s.outdated){ $("#st-title").textContent = "Oyun güncellenmiş"; pill.innerHTML = `<span class="pill warn">Yeniden kur</span>`; }
+  else { $("#st-title").textContent = "Yama kurulu değil"; pill.innerHTML = `<span class="pill">Kurulu değil</span>`; }
+  $("#ver").innerHTML = `Sürüm ${esc(s.version)}<br>Oyun klasörü değiştirilmez.<br>Kurulum AppData önbelleğine yapılır.`;
+}
+function setBusy(b){ ["#b-install-launch","#b-install","#b-uninstall"].forEach(id => $(id).disabled = b); }
+async function follow(){
+  setBusy(true);
+  const tick = async () => {
+    const p = await api.poll();
+    $("#log").textContent = p.log.join("\n") || "…";
+    $("#log").scrollTop = 1e9;
+    if (p.busy) setTimeout(tick, 500); else { setBusy(false); refreshStatus(); }
+  };
+  setTimeout(tick, 300);
+}
+$("#b-install-launch").onclick = async () => { if (await api.install($("#opt-hints").checked, true)) follow(); };
+$("#b-install").onclick = async () => { if (await api.install($("#opt-hints").checked, false)) follow(); };
+$("#b-uninstall").onclick = async () => { if (confirm("Türkçe yama kaldırılsın mı? Oyun İngilizceye döner.")) { if (await api.uninstall()) follow(); } };
+$("#b-launch").onclick = () => api.launch();
+
+// ---------------- guide data + state ----------------
+let G = null, S = {};
+// Purchases in recommended order. req = must own these first. Prices are typed by the player (server-side data).
+const BUY = [
+  {id:"bank",       cat:"Temel", t:"Banka hesabı",               why:"Kirli parayı aklayıp güvenle saklarsın; klan ve döviz için de şart.", where:"Looty Bay Bankası", req:[]},
+  {id:"plot",       cat:"Temel", t:"Arsa Tapusu (Sv.1) + arsa",  why:"Kendi üssün: Karaborsa erişimi ve Lenny'ye komisyon ödemeden aklama.", where:"Sevkiyatlar", req:["bank"]},
+  {id:"lockpick",   cat:"Alet",  t:"Maymuncuk",                  why:"Kapıları alarmsız açar. Soygun riskini en çok düşüren alet.", where:"Karaborsa", req:[]},
+  {id:"car",        cat:"Araç",  t:"Kendi araban",               why:"Kiralık yerine kendi araban; ölünce kaybolmaz, yükseltilebilir.", where:"Karaborsa > Araçlar", req:["plot"]},
+  {id:"trunk",      cat:"Araç",  t:"Bagaj Çantaları",            why:"Bir turda daha fazla ganimet = daha az gidip gelme.", where:"Karaborsa", req:["car"]},
+  {id:"minidrill",  cat:"Alet",  t:"Mini Matkap",                why:"Anahtarı olmayan kasaları açarsın; Şifre Tableti'ni de doldurur.", where:"Karaborsa", req:["lockpick"]},
+  {id:"counter",    cat:"Üs",    t:"Para Sayma Makinesi",        why:"Aklama hızını artırır: saatlik kazancın doğrudan yükselir.", where:"Karaborsa", req:["plot"]},
+  {id:"cargo",      cat:"Üs",    t:"Kargo Tezgâhı",              why:"Çalıntı kargoyu açıp içindekileri tek tek satarsın.", where:"Karaborsa", req:["plot"]},
+  {id:"shelving",   cat:"Üs",    t:"Raflar",                     why:"Kargoları üste biriktirip toplu satarsın.", where:"Karaborsa", req:["cargo"]},
+  {id:"collection", cat:"Üs",    t:"Koleksiyon Masası",          why:"Eşyaları koleksiyon olarak paketleyip çok daha pahalıya satarsın.", where:"Karaborsa", req:["plot"]},
+  {id:"gear",       cat:"Savaş", t:"MK2 silah + çelik yelek",    why:"Orta seviye soygunlarda ve oyunculara karşı hayatta kalırsın.", where:"Karaborsa", req:[]},
+  {id:"contraband", cat:"Üs",    t:"Kaçak Mal Tezgâhı",          why:"Ucuz kaçak malı yeniden paketleyip pahalıya satarsın: istikrarlı kâr.", where:"Karaborsa", req:["cargo"]},
+  {id:"defense",    cat:"Üs",    t:"Güvenlik Sistemi (Sigorta)", why:"Üssünü baskınlara karşı korur; biriktirdiğini kaybetmezsin.", where:"Karaborsa", req:["plot"]},
+  {id:"lvl2",       cat:"Temel", t:"Arsa Tapusu (Sv.2) - taşınma", why:"Üst düzey sevkiyatlar ve daha iyi aklama açılır.", where:"Sevkiyatlar", req:["plot","counter"]},
+  {id:"farm",       cat:"Üs",    t:"Yetiştirme Odası / Kimya Lab.", why:"Pasif ürün üretimi: saatlik kazancın katlanır.", where:"Karaborsa", req:["lvl2"]},
+  {id:"house2",     cat:"Üs",    t:"Daha büyük ev",              why:"Daha fazla yapı ve depo alanı, daha güçlü koruma.", where:"Karaborsa > İnşaat", req:["plot"]},
+  {id:"clan",       cat:"İmparatorluk", t:"Klan kur",            why:"İşletme ve bölge kontrolüyle tüm klana gelir.", where:"Klan menüsü", req:["bank","gear"]},
+  {id:"settlement", cat:"İmparatorluk", t:"Yerleşim Tapusu",     why:"Bir yerleşime sahip ol, sakinlerden vergi topla.", where:"Sevkiyatlar", req:["lvl2"]},
+];
+const EXTRA = [   // owned things that are not shop purchases
+  {id:"drill", t:"Matkap (takas)"}, {id:"glass", t:"Cam Kesici (takas)"}, {id:"jammer", t:"Sinyal Bozucu"},
+  {id:"crew", t:"Grupla oynuyorum"},
+];
+const has = id => !!(S.own && S.own[id]);
+const num = v => { const n = parseInt(String(v ?? "").replace(/[^\d]/g, ""), 10); return isNaN(n) ? 0 : n; };
+const money = n => "$" + Math.round(n).toLocaleString("tr-TR");
+
+function stageIndex(){
+  const cash = num(S.cash);
+  if (!has("bank") && !has("plot") && cash < 1) return 0;
+  if (!has("bank") || !has("plot") || !has("lockpick")) return 1;
+  if (!has("car") || !has("cargo") || !has("collection") || !has("minidrill")) return 2;
+  if (!has("contraband") || !has("lvl2")) return 3;
+  if (!has("clan")) return 4;
+  return 5;
+}
+function maxRisk(){
+  const st = stageIndex();
+  let r = [2,2,3,3,5,5][st];
+  if (has("crew")) r += 1;
+  if (!has("gear") && r > 3) r = 3 + (has("crew") ? 1 : 0);
+  return Math.min(r, 5);
+}
+function canDo(t){
+  const toolOwned = {drill_1:"drill", glass_cutter_1:"glass", auto_flipper_1:"jammer"};
+  const missing = t.needs.filter(n => !has(toolOwned[n.id]));
+  return {ok: t.risk <= maxRisk() && missing.length === 0, missing};
+}
+
+function save(){ api.save_state(S); }
+
+function setOwn(id, v){ S.own = S.own || {}; S.own[id] = v; save(); renderAll(); }
+
+function renderOwned(){
+  const groups = {};
+  BUY.forEach(b => (groups[b.cat] = groups[b.cat] || []).push(b));
+  groups["Diğer"] = EXTRA;
+  $("#owned").innerHTML = `<div class="owngrid">` + Object.entries(groups).map(([g, list]) =>
+    `<div class="owngrp"><b>${esc(g)}</b><div class="chips">${list.map(o =>
+      `<button class="chip ${has(o.id)?"on":""}" data-own="${o.id}">${esc(o.t)}</button>`).join("")}</div></div>`).join("") + `</div>`;
+  document.querySelectorAll("[data-own]").forEach(c => c.onclick = () => setOwn(c.dataset.own, !has(c.dataset.own)));
+}
+const fmtInput = el => { const n = num(el.value); el.value = n ? n.toLocaleString("tr-TR") : ""; };
+function bindStats(){
+  $("#cash").value = num(S.cash) ? num(S.cash).toLocaleString("tr-TR") : "";
+  $("#income").value = num(S.income) ? num(S.income).toLocaleString("tr-TR") : "";
+  $("#nam").value = S.nam ?? "1";
+}
+$("#cash").oninput = () => { S.cash = num($("#cash").value); save(); renderPlan(); };
+$("#income").oninput = () => { S.income = num($("#income").value); save(); renderPlan(); };
+$("#cash").onblur = () => fmtInput($("#cash"));
+$("#income").onblur = () => fmtInput($("#income"));
+$("#nam").onchange = () => { S.nam = $("#nam").value; save(); renderPlan(); };
+
+function targetCard(t, compact){
+  const c = canDo(t);
+  const loot = t.loot.map(l => `<span>${esc(l.name)}${l.value?`<em>${l.value}/5</em>`:""}</span>`).join("");
+  const needs = t.needs.length ? t.needs.map(n => `<span class="${c.missing.includes(n)?'need':'tag-ok'}">${esc(n.name)}</span>`).join(", ") : "Yok";
+  const keys = t.keys.length ? [...new Set(t.keys.map(k => k.name))].map(esc).join(", ") + ` <span class="muted">(${t.keys.length} adet)</span>` : "—";
+  return `<div class="card tcard">
+    <h3>${esc(t.name)}</h3><div class="area">${esc(t.area)}</div>
+    <div class="kv"><b>Değer</b><div>${meter(t.value,"v")} ${t.value}/5</div>
+      <b>Risk</b><div>${meter(t.risk,"r")} ${t.risk}/5</div>
+      <b>Gerekli</b><div>${needs}</div>
+      ${compact?"":`<b>Anahtar</b><div>${keys}</div>`}</div>
+    ${compact?"":`<div class="loot">${loot || '<span class="muted">Özel ganimet listesi yok</span>'}</div>`}
+    <div class="tip">${esc(t.tip)}</div>
+  </div>`;
+}
+
+function recommendations(){
+  // next purchases whose prerequisites are owned, in priority order
+  return BUY.filter(b => !has(b.id) && b.req.every(has));
+}
+function priceState(b){
+  const p = num((S.prices||{})[b.id]), cash = num(S.cash), inc = num(S.income);
+  if (!p) return {cls:"unk", txt:"Fiyatı gir"};
+  if (cash >= p) return {cls:"yes", txt:"✔ Alabilirsin"};
+  const miss = p - cash;
+  const hrs = inc ? Math.ceil(miss / inc) : null;
+  return {cls:"no", txt:`${money(miss)} eksik` + (hrs ? ` · ~${hrs} sa` : "")};
+}
+function renderPlan(){
+  const st = stageIndex(), stage = G.stages[st];
+  $("#stage-pill").textContent = `Aşama ${st+1}/${G.stages.length} · ${stage.title}`;
+  const cash = num(S.cash), inc = num(S.income);
+  const canPay = b => { const p = num((S.prices||{})[b.id]); return p && cash >= p; };
+  // top 3 by priority, but what you can pay for right now comes first
+  const recs = recommendations().slice(0, 3).sort((a, b) => canPay(b) - canPay(a));
+  const affordable = recs.filter(canPay);
+  // headline sentence
+  let line;
+  if (!cash) line = "Oyundaki nakdini yukarıya yaz; sana parana göre ne alman gerektiğini söyleyeyim.";
+  else if (affordable.length) line = `Şu an <b style="color:var(--accent)">${money(cash)}</b> paran var. <b>${esc(affordable[0].t)}</b> almak için yeterli; önce onu al.`;
+  else if (recs[0] && num((S.prices||{})[recs[0].id])) {
+    const miss = num(S.prices[recs[0].id]) - cash;
+    line = `Şu an <b style="color:var(--accent)">${money(cash)}</b> paran var. <b>${esc(recs[0].t)}</b> için <b>${money(miss)}</b> daha lazım` +
+           (inc ? `; saatlik kazancınla yaklaşık <b>${Math.ceil(miss/inc)} saat</b>.` : ". Aşağıdaki hedeflerle hızlıca kazanabilirsin.");
+  } else line = `Şu an <b style="color:var(--accent)">${money(cash)}</b> paran var. Önerilerin fiyatını gir, hangisine yettiğini göstereyim.`;
+  if (inc) line += ` <span class="muted">(Saatlik ${money(inc)} kazançla günde ~${money(inc*24)})</span>`;
+  $("#advice-line").innerHTML = line;
+
+  $("#recs").innerHTML = recs.map((b, i) => {
+    const ps = priceState(b), p = num((S.prices||{})[b.id]);
+    return `<div class="rec ${i===0?'first':''}"><span class="rno">${i+1}${i===0?' · ÖNCE BU':''}</span>
+      <div class="cat">${esc(b.cat)} · ${esc(b.where)}</div>
+      <h3>${esc(b.t)}</h3><p>${esc(b.why)}</p>
+      <div class="price">
+        <label class="pin">$<input data-price="${b.id}" inputmode="numeric" placeholder="fiyat" value="${p ? p.toLocaleString('tr-TR') : ''}"></label>
+        <span class="badge ${ps.cls}">${ps.txt}</span>
+        <button class="btn sm done-btn" data-buy="${b.id}" style="margin-left:auto">Aldım ✓</button>
+      </div></div>`;
+  }).join("") || `<div class="card">Bütün önerileri tamamladın. Artık klanınla bölge kontrolüne odaklan.</div>`;
+  document.querySelectorAll("[data-price]").forEach(inp => {
+    inp.onchange = () => { S.prices = S.prices || {}; S.prices[inp.dataset.price] = num(inp.value); save(); renderPlan(); renderUps(); };
+  });
+  document.querySelectorAll("[data-buy]").forEach(btn => btn.onclick = () => {
+    const p = num((S.prices||{})[btn.dataset.buy]);
+    if (p && num(S.cash) >= p) S.cash = num(S.cash) - p;          // spend it, like in the game
+    setOwn(btn.dataset.buy, true); bindStats();
+  });
+
+  const fit = G.targets.filter(t => canDo(t).ok).sort((a,b) => (b.value/b.risk) - (a.value/a.risk) || b.value - a.value).slice(0,4);
+  $("#fit").innerHTML = fit.map(t => `<div class="fitrow"><h4>${esc(t.name)}</h4>
+      <span>${meter(t.value,"v")}</span><div class="sub">${esc(t.area)} · Risk ${t.risk}/5${t.keys.length?` · ${t.keys.length} anahtar`:""}</div>
+      <div class="loot">${t.loot.slice(0,3).map(l => `<span>${esc(l.name)}${l.value?`<em>${l.value}/5</em>`:""}</span>`).join("")}</div></div>`).join("")
+    || `<div class="muted">Henüz uygun hedef yok.</div>`;
+  const done = new Set(S.steps || []);
+  $("#stages").innerHTML = G.stages.map((s,i) => `<div class="stage ${i<st?'done':i===st?'cur':''}">
+     <div class="num">${i<st?'✓':i+1}</div>
+     <div><h3>${esc(s.title)}</h3><div class="muted">${esc(s.goal)}</div>
+       <ul>${s.steps.map(x => `<li><label class="chk"><input type="checkbox" data-step="${esc(x)}" ${done.has(x)?"checked":""}> ${esc(x)}</label></li>`).join("")}</ul>
+       ${s.tips.length?`<ul class="muted">${s.tips.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}</div></div>`).join("");
+  document.querySelectorAll("[data-step]").forEach(c => c.onchange = () => {
+    const set = new Set(S.steps||[]); c.checked ? set.add(c.dataset.step) : set.delete(c.dataset.step);
+    S.steps = [...set]; save(); renderPlan(); });
+}
+
+function renderTargets(){
+  const q = $("#q").value.trim().toLocaleLowerCase("tr"), area = $("#f-area").value, sort = $("#f-sort").value, only = $("#f-can").checked;
+  let list = G.targets.filter(t => (!area || t.area === area) && (!only || canDo(t).ok)
+    && (!q || (t.name + " " + t.loot.map(l=>l.name).join(" ")).toLocaleLowerCase("tr").includes(q)));
+  const by = {ratio:(a,b)=>(b.value/b.risk)-(a.value/a.risk)||b.value-a.value, value:(a,b)=>b.value-a.value||a.risk-b.risk, risk:(a,b)=>a.risk-b.risk||b.value-a.value}[sort];
+  $("#tgrid").innerHTML = list.sort(by).map(t => targetCard(t,false)).join("") || `<div class="muted">Sonuç yok.</div>`;
+}
+["#q","#f-area","#f-sort","#f-can"].forEach(id => $(id).addEventListener("input", renderTargets));
+
+function renderKeys(){
+  $("#tools").innerHTML = G.tools.map(t => `<div class="card"><h3 style="margin:0 0 6px;font-family:var(--cond);text-transform:uppercase">${esc(t.name)}</h3><p style="margin:0;color:#cfd2d7;line-height:1.5">${esc(t.how)}</p></div>`).join("");
+  const rows = [];
+  G.targets.forEach(t => t.keys.forEach(k => rows.push({k, t})));
+  const seen = new Set();
+  $("#keylist").innerHTML = rows.filter(r => !seen.has(r.k.id + r.t.id) && seen.add(r.k.id + r.t.id)).map(({k,t}) => `
+    <div class="card"><div class="row"><b style="font-family:var(--cond);font-size:16px;text-transform:uppercase">${esc(k.name)}</b><span class="pill">${esc(k.id)}</span></div>
+    <p style="margin:8px 0;color:#cfd2d7">${esc(k.desc)}</p>
+    <div class="muted" style="font-size:12px">${esc(t.name)} · Değer ${t.value}/5 · Risk ${t.risk}/5</div></div>`).join("");
+}
+
+function renderUps(){
+  let firstMarked = false;
+  const ready = new Set(recommendations().map(b => b.id));
+  $("#uplist").innerHTML = BUY.map((b,i) => {
+    const d = has(b.id), first = !d && ready.has(b.id) && !firstMarked; if (first) firstMarked = true;
+    const p = num((S.prices||{})[b.id]);
+    const lock = !d && !ready.has(b.id) ? `<span class="pill">Önce: ${b.req.filter(r => !has(r)).map(r => esc(BUY.find(x => x.id === r).t)).join(", ")}</span>` : "";
+    return `<div class="up ${d?'done':''} ${first?'first':''}"><div class="n">${d?'✓':i+1}</div>
+      <div style="flex:1"><b>${esc(b.t)}</b>${first?' <span class="pill" style="background:var(--accent);color:var(--accent-ink)">Sıradaki</span>':''} ${lock}
+      <div class="muted" style="margin-top:3px">${esc(b.why)}</div></div>
+      <div class="muted" style="font-family:var(--cond);font-size:16px">${p ? money(p) : ""}</div></div>`;
+  }).join("");
+}
+
+// ---------------- Başlangıç Rehberi (simple, one step at a time) ----------------
+const STEPS = [
+  {e:"🗣️", t:"Lenny ile konuş", w:"Hapisten çıkınca Lenny's Motel'e gelirsin. Bardaki Lenny ile konuş; sana işin nasıl yürüdüğünü anlatır.", h:"Motel güvenli bölge: burada kimse sana ateş edemez."},
+  {e:"🚗", t:"Araç kirala, şehre git", w:"Motelin önündeki Otopark Terminali'nden bir araç kirala ve haritadan Looty Bay'e sür.", h:"Kiralık araç bedava. Kendi arabanı sonra alacaksın."},
+  {e:"🎭", t:"Gizlice maske tak", w:"Şehirde kimsenin görmediği bir köşe bul ve maskeni tak. Artık Suçlusun.", h:"<b>Dikkat:</b> Çalışanlar seni maskeli görürse polisi arar. Onlara nişan alırsan durdururlar."},
+  {e:"🛒", t:"İlk soygun: market", w:"Bir Market'e ya da kafeye gir, raflardaki içkileri ve kasadaki parayı topla.", h:"Market ve kafeler en kolay hedef: risk düşük, polis geç gelir."},
+  {e:"🏃", t:"Şehirden canlı çık", w:"Arabana bin ve şehrin sınırından çık. Çıkınca çalınanlar senin olur.", h:"Polis seni sıkıştırırsa <b>Q</b> ile teslim ol: sadece çantadakiler gider."},
+  {e:"💵", t:"Çalıntı malı sat", w:"Çalıntı Alıcısı'na git ve topladıklarını nakit karşılığında sat.", h:"İlk birkaç soygunu bu döngüyle yap: çal, kaç, sat."},
+  {e:"🏦", t:"Banka hesabı aç", own:"bank", w:"Looty Bay Bankası'na git ve hesap aç.", h:"Hesaptaki para çalınamaz. Klan kurmak için de şart."},
+  {e:"🏠", t:"Arsa al, yerleş", own:"plot", w:"Dizüstünde Sevkiyatlar'dan 1. seviye Arsa Tapusu al. Haritada sahibi olan bir yerleşimde boş arsaya tapuyu kullan.", h:"Artık kendi üssün var: Karaborsa'ya ve aklama masasına buradan ulaşırsın."},
+  {e:"🧺", t:"Parayı akla", w:"Üssündeki Aklama Masası'na kirli paranı koy. Temizlenen para banka hesabına geçer.", h:"Lenny'de aklarsan komisyon alır; kendi üssünde bedava."},
+  {e:"🔓", t:"Maymuncuk al", own:"lockpick", w:"Karaborsa'dan Maymuncuk satın al.", h:"Kapıları <b>alarm çalmadan</b> açar. Soygunları çok kolaylaştırır."},
+  {e:"🚙", t:"Kendi arabanı al", own:"car", w:"Karaborsa'dan bir araba al ve anahtarını üssündeki Anahtar Dolabı'na koy.", h:"Kendi araban ölünce kaybolmaz. Sonra bagajını büyüt."},
+  {e:"🗺️", t:"Bir üst seviyeye geç", w:"Temelleri tamamladın! Bundan sonra ne alacağını <b>Durumum</b> sekmesi parana göre söyler; nereyi soyacağını <b>Soygun Hedefleri</b> gösterir.", h:"Eczane, elektronik mağazası ve yazlıklar bir sonraki iyi hedefler."},
+];
+function sgDone(){ return new Set(S.sg_done || []); }
+function renderStart(){
+  const done = sgDone();
+  STEPS.forEach((s, i) => { if (s.own && has(s.own)) done.add(i); });   // synced with Durumum
+  const cur = STEPS.findIndex((_, i) => !done.has(i));
+  $("#sg-fill").style.width = `${Math.round(done.size / STEPS.length * 100)}%`;
+  $("#sg-count").textContent = `${done.size}/${STEPS.length} adım`;
+  $("#sg-steps").innerHTML = STEPS.map((s, i) => {
+    if (i === cur) return `<div class="sg cur">
+        <div class="head"><span class="n">${i+1}</span><span class="emo">${s.e}</span><span class="t">${esc(s.t)}</span></div>
+        <p class="what">${s.w}</p><div class="hint">💡 ${s.h}</div>
+        <div class="acts"><button class="btn primary" data-sg-done="${i}">Yaptım ✓</button>
+        ${i < STEPS.length - 1 ? `<button class="btn" data-sg-done="${i}" data-skip="1">Bunu zaten biliyorum, atla</button>` : ""}</div></div>`;
+    const d = done.has(i);
+    return `<div class="sg ${d ? "done" : ""}" ${d ? `data-sg-undo="${i}" title="Geri almak için tıkla"` : ""}>
+        <span class="n">${d ? "✓" : i+1}</span><span class="t">${esc(s.t)}</span></div>`;
+  }).join("") + (cur === -1 ? `<div class="sg-finish"><h3>🎉 Temeller tamam!</h3>
+        <p class="lead" style="margin:0">Artık sıradaki alımları <b>Durumum</b> sekmesi, soyacağın yerleri <b>Soygun Hedefleri</b> gösterir.</p>
+        <button class="btn primary" style="margin-top:14px" onclick="document.querySelector('[data-tab=plan]').click()">Durumum'a git</button></div>` : "");
+  document.querySelectorAll("[data-sg-done]").forEach(b => b.onclick = () => {
+    const i = +b.dataset.sgDone, d = sgDone(); d.add(i); S.sg_done = [...d];
+    if (STEPS[i].own) setOwn(STEPS[i].own, true); else { save(); renderStart(); }
+  });
+  document.querySelectorAll("[data-sg-undo]").forEach(el => el.onclick = () => {
+    const i = +el.dataset.sgUndo, d = sgDone(); d.delete(i); S.sg_done = [...d];
+    if (STEPS[i].own) setOwn(STEPS[i].own, false); else { save(); renderStart(); }
+  });
+}
+$("#sg-reset").onclick = () => { if (confirm("Başlangıç rehberi baştan başlasın mı?")) { S.sg_done = []; save(); renderStart(); } };
+
+function renderAll(){ renderOwned(); renderPlan(); renderTargets(); renderKeys(); renderUps(); renderStart(); }
+
+// ---------------- live link to the running game (screen OCR in the app) ----------------
+const ago = t => { const s = Math.max(0, Math.round(Date.now()/1000 - t)); return s < 60 ? `${s} sn önce` : `${Math.round(s/60)} dk önce`; };
+async function pollLive(){
+  let L;
+  try { L = await api.live(); } catch { return; }
+  const bar = $("#livebar"), txt = $("#live-text");
+  bar.className = "livebar";
+  if (!L || !L.running) txt.textContent = "Oyun kapalı. Oyunu açınca paran otomatik okunur.";
+  else if (L.error === "black") { bar.classList.add("warn"); txt.textContent = "Oyun ekranı yakalanamıyor: oyunda Görüntü modunu “Kenarlıksız pencere” yap."; }
+  else if (!L.visible) txt.textContent = "Oyun açılıyor…";
+  else {
+    bar.classList.add("on");
+    txt.innerHTML = L.cash_at
+      ? `Oyun bağlı · paran ekrandan okunuyor (son okuma ${ago(L.cash_at)}). Güncellemek için oyunda dizüstünü ya da envanteri (TAB) aç.`
+      : `Oyun bağlı · parayı okumak için oyunda bir kez <b>dizüstünü (Karaborsa/Sevkiyatlar)</b> ya da <b>envanteri (TAB)</b> aç.`;
+    if (!L.focused) txt.innerHTML += ` <span class="muted">(Oyun arka planda; okuma oyun öndeyken yapılır.)</span>`;
+  }
+  let changed = false;
+  if (L && L.cash != null && L.cash_at && L.cash_at > (S.cash_at || 0)) {
+    S.cash = L.cash; S.cash_at = L.cash_at; S.cash_src = "live"; changed = true;
+    // earning rate from what the game shows over time: sum of increases / elapsed hours (spending ignored)
+    S.hist = (S.hist || []).filter(h => L.cash_at - h[0] < 6 * 3600);
+    S.hist.push([L.cash_at, L.cash]);
+    if (S.income_src !== "manual" && S.hist.length > 1) {
+      const span = (S.hist[S.hist.length - 1][0] - S.hist[0][0]) / 3600;
+      let gain = 0;
+      for (let i = 1; i < S.hist.length; i++) gain += Math.max(0, S.hist[i][1] - S.hist[i - 1][1]);
+      if (span >= 0.25) { S.income = Math.round(gain / span); S.income_src = "live"; }
+    }
+  }
+  if (L && L.bag != null && L.bag_at && L.bag_at > (S.bag_at || 0)) { S.bag = L.bag; S.bag_at = L.bag_at; changed = true; }
+  for (const [id, v] of Object.entries((L && L.prices) || {})) {
+    S.prices = S.prices || {}; S.price_src = S.price_src || {};
+    if (!S.prices[id] || S.price_src[id] === "live") { if (S.prices[id] !== v) changed = true; S.prices[id] = v; S.price_src[id] = "live"; }
+  }
+  $("#cash-src").textContent = S.cash_src === "live" && S.cash_at ? `· OYUNDAN · ${ago(S.cash_at)}` : "";
+  $("#inc-src").textContent = S.income_src === "live" ? "· OTOMATİK" : (S.cash_src === "live" && !S.income ? "· hesaplanıyor" : "");
+  $("#bag-line").textContent = S.bag ? `Çantada: ${money(S.bag)}${S.bag_at ? " · " + ago(S.bag_at) : ""}` : "";
+  if (changed) { save(); if (document.activeElement !== $("#cash")) bindStats(); renderPlan(); renderUps(); }
+}
+$("#cash").addEventListener("input", () => { S.cash_src = "manual"; });
+$("#income").addEventListener("input", () => { S.income_src = $("#income").value.trim() ? "manual" : "live"; });
+
+let booted = false;
+async function boot(){
+  if (booted) return; booted = true;
+  refreshStatus();
+  G = await api.guide(); S = (await api.load_state()) || {};
+  const areas = [...new Set(G.targets.map(t => t.area))];
+  $("#f-area").innerHTML += areas.map(a => `<option>${esc(a)}</option>`).join("");
+  bindStats(); renderAll();
+  pollLive(); setInterval(pollLive, 2000);
+}
+if (hasApi()) boot(); else window.addEventListener("pywebviewready", boot, {once:true});
+setTimeout(boot, 800);   // browser preview fallback (no-op if already booted)
+</script>
+</body>
+</html>

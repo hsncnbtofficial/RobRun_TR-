@@ -1,0 +1,1381 @@
+{
+ "areas": {
+  "west": "Sunny Beach (tatil bölgesi, batı)",
+  "east": "Şehir Merkezi (iş bölgesi, doğu)",
+  "hills": "Loraine Hills (seçkin yazlıklar)"
+ },
+ "targets": [
+  {
+   "id": "city_mini_market_west",
+   "name": "Market",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 1,
+   "value": 3,
+   "loot": [
+    {
+     "id": "alcohol_3",
+     "name": "Diamond Breeze Şişesi",
+     "value": 2
+    },
+    {
+     "id": "alcohol_1",
+     "name": "Black Pirate Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_2",
+     "name": "Krystal Light Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_5",
+     "name": "Golden Jaguar Şişesi",
+     "value": 3
+    }
+   ],
+   "tip": "Başlangıç için ideal. Kasiyer alarma uzanırsa ona nişan al; içkiler ucuz ama hızlı satılır.",
+   "keys": [
+    {
+     "id": "safe_key_9",
+     "name": "Kasa Anahtarı",
+     "desc": "Sunny Beach'teki Market'in kasasını açar."
+    },
+    {
+     "id": "room_key_11",
+     "name": "Oda Anahtarı",
+     "desc": "Sunny Beach'teki Market'in kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_mini_market_east",
+   "name": "Market",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 1,
+   "value": 3,
+   "loot": [
+    {
+     "id": "alcohol_3",
+     "name": "Diamond Breeze Şişesi",
+     "value": 2
+    },
+    {
+     "id": "alcohol_1",
+     "name": "Black Pirate Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_2",
+     "name": "Krystal Light Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_5",
+     "name": "Golden Jaguar Şişesi",
+     "value": 3
+    }
+   ],
+   "tip": "Şehir Merkezi'nde iki market var (kuzey ve merkez); anahtarına göre doğru olanı seç.",
+   "keys": [
+    {
+     "id": "safe_key_4",
+     "name": "Kasa Anahtarı",
+     "desc": "Kuzey Şehir Merkezi'ndeki Market'in kasasını açar."
+    },
+    {
+     "id": "safe_key_8",
+     "name": "Kasa Anahtarı",
+     "desc": "Merkez Şehir Merkezi'ndeki Market'in kasasını açar."
+    },
+    {
+     "id": "room_key_10",
+     "name": "Oda Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Market'in kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_mini_market_east_bridge",
+   "name": "Market",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 1,
+   "value": 3,
+   "loot": [
+    {
+     "id": "alcohol_3",
+     "name": "Diamond Breeze Şişesi",
+     "value": 2
+    },
+    {
+     "id": "alcohol_1",
+     "name": "Black Pirate Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_2",
+     "name": "Krystal Light Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_5",
+     "name": "Golden Jaguar Şişesi",
+     "value": 3
+    }
+   ],
+   "tip": "Köprü yanında; kaçış yolu kısa ama polis köprüyü kapatabilir.",
+   "keys": [],
+   "needs": []
+  },
+  {
+   "id": "city_cafe_pier",
+   "name": "Ocean Breeze Kafe",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 1,
+   "value": 3,
+   "loot": [
+    {
+     "id": "alcohol_3",
+     "name": "Diamond Breeze Şişesi",
+     "value": 2
+    },
+    {
+     "id": "alcohol_1",
+     "name": "Black Pirate Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_2",
+     "name": "Krystal Light Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_5",
+     "name": "Golden Jaguar Şişesi",
+     "value": 3
+    }
+   ],
+   "tip": "İskeledeki kafe; kasa anahtarın varsa ilk kasa denemesi için güvenli.",
+   "keys": [
+    {
+     "id": "safe_key_6",
+     "name": "Kasa Anahtarı",
+     "desc": "Sunny Beach iskelesindeki Kafe'nin kasasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_cafe_east",
+   "name": "Rusty Burgers Kafe",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 1,
+   "value": 3,
+   "loot": [
+    {
+     "id": "alcohol_3",
+     "name": "Diamond Breeze Şişesi",
+     "value": 2
+    },
+    {
+     "id": "alcohol_1",
+     "name": "Black Pirate Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_2",
+     "name": "Krystal Light Şişesi",
+     "value": 1
+    },
+    {
+     "id": "alcohol_5",
+     "name": "Golden Jaguar Şişesi",
+     "value": 3
+    }
+   ],
+   "tip": "Hamburgerci; kasası anahtarla ya da Mini Matkapla açılır.",
+   "keys": [
+    {
+     "id": "safe_key_11",
+     "name": "Kasa Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Kafe'nin kasasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_gas_station",
+   "name": "Benzin İstasyonu",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 2,
+   "value": 3,
+   "loot": [
+    {
+     "id": "alcohol_1",
+     "name": "Black Pirate Şişesi",
+     "value": 1
+    },
+    {
+     "id": "car_device_2",
+     "name": "Ucuz Oto Teyp",
+     "value": 2
+    },
+    {
+     "id": "car_parts_5",
+     "name": "Direksiyon",
+     "value": 3
+    },
+    {
+     "id": "car_parts_8",
+     "name": "Premium Araba Kompresörü",
+     "value": 3
+    }
+   ],
+   "tip": "İki gizli oda (sol/sağ) ayrı anahtarlarla açılır. Memurların uğrak yeri, dikkatli ol.",
+   "keys": [
+    {
+     "id": "safe_key_12",
+     "name": "Kasa Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Benzin İstasyonu'nun kasasını açar."
+    },
+    {
+     "id": "room_key_5",
+     "name": "Oda Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Benzin İstasyonu'nun soldaki gizli odasını açar."
+    },
+    {
+     "id": "room_key_6",
+     "name": "Oda Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Benzin İstasyonu'nun sağdaki gizli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_pharmacy_shop_west",
+   "name": "Eczane",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 2,
+   "value": 3,
+   "loot": [
+    {
+     "id": "painkiller_1",
+     "name": "Ağrı Kesici",
+     "value": 1
+    },
+    {
+     "id": "condoms_3",
+     "name": "Zipit Prezervatif",
+     "value": 1
+    },
+    {
+     "id": "pharma_tools_4",
+     "name": "Tansiyon Aleti",
+     "value": 2
+    },
+    {
+     "id": "vial_5",
+     "name": "Kozmetik Ampul",
+     "value": 3
+    }
+   ],
+   "tip": "Tıbbi ampuller değerli; kilitli odadaki bilgisayar USB Hackleme Aracı'nı doldurur.",
+   "keys": [
+    {
+     "id": "safe_key_5",
+     "name": "Kasa Anahtarı",
+     "desc": "Sunny Beach'teki Eczane'nin kasasını açar."
+    },
+    {
+     "id": "room_key_9",
+     "name": "Oda Anahtarı",
+     "desc": "Sunny Beach'teki Eczane'nin kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_pharmacy_shop_east",
+   "name": "Eczane",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "painkiller_1",
+     "name": "Ağrı Kesici",
+     "value": 1
+    },
+    {
+     "id": "condoms_3",
+     "name": "Zipit Prezervatif",
+     "value": 1
+    },
+    {
+     "id": "pharma_tools_4",
+     "name": "Tansiyon Aleti",
+     "value": 2
+    },
+    {
+     "id": "vial_6",
+     "name": "Tıbbi Ampul",
+     "value": 4
+    }
+   ],
+   "tip": "Kilitli odadaki bilgisayarı hackleyerek USB aracını doldur.",
+   "keys": [
+    {
+     "id": "safe_key_10",
+     "name": "Kasa Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Eczane'nin kasasını açar."
+    },
+    {
+     "id": "room_key_8",
+     "name": "Oda Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Eczane'nin kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_electronics_store_west",
+   "name": "Elektronik Mağazası",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "headphones_1",
+     "name": "AIRHEADS Kulaklık",
+     "value": 2
+    },
+    {
+     "id": "phone_4",
+     "name": "Flip Ring Akıllı Telefon",
+     "value": 3
+    },
+    {
+     "id": "console_4",
+     "name": "G-Cube Konsol",
+     "value": 4
+    },
+    {
+     "id": "laptop_4",
+     "name": "PD STATION Dizüstü Bilgisayar",
+     "value": 4
+    }
+   ],
+   "tip": "Konsol ve dizüstüler değerli; elektronikleri koleksiyon için sakla.",
+   "keys": [
+    {
+     "id": "safe_key_13",
+     "name": "Kasa Anahtarı",
+     "desc": "Sunny Beach'teki Elektronik Mağazası'nın kasasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_electronics_store_east",
+   "name": "Elektronik Mağazası",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "headphones_1",
+     "name": "AIRHEADS Kulaklık",
+     "value": 2
+    },
+    {
+     "id": "phone_4",
+     "name": "Flip Ring Akıllı Telefon",
+     "value": 3
+    },
+    {
+     "id": "console_4",
+     "name": "G-Cube Konsol",
+     "value": 4
+    },
+    {
+     "id": "laptop_4",
+     "name": "PD STATION Dizüstü Bilgisayar",
+     "value": 4
+    }
+   ],
+   "tip": "Kasa anahtarı yok; vitrinlerden hızlı topla.",
+   "keys": [],
+   "needs": []
+  },
+  {
+   "id": "city_equipment_store_west",
+   "name": "Ekipman Mağazası: Batı",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "equipment_2",
+     "name": "Dürbün",
+     "value": 2
+    },
+    {
+     "id": "burner_2",
+     "name": "Saha Ocağı",
+     "value": 2
+    },
+    {
+     "id": "equipment_11",
+     "name": "Koleksiyon Çok Amaçlı Aleti",
+     "value": 4
+    },
+    {
+     "id": "vest3_m3",
+     "name": "Ağır MK3 Çelik Yelek",
+     "value": 4
+    }
+   ],
+   "tip": "Çelik yelek ve koleksiyon çok amaçlı aleti çıkar.",
+   "keys": [
+    {
+     "id": "room_key_2",
+     "name": "Oda Anahtarı",
+     "desc": "Sunny Beach'teki Ekipman Mağazası'nın kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_equipment_store_east",
+   "name": "Ekipman Mağazası: Doğu",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "equipment_2",
+     "name": "Dürbün",
+     "value": 2
+    },
+    {
+     "id": "burner_2",
+     "name": "Saha Ocağı",
+     "value": 2
+    },
+    {
+     "id": "equipment_11",
+     "name": "Koleksiyon Çok Amaçlı Aleti",
+     "value": 4
+    },
+    {
+     "id": "vest3_m3",
+     "name": "Ağır MK3 Çelik Yelek",
+     "value": 4
+    }
+   ],
+   "tip": "Kilitli oda için Oda Anahtarı gerekir.",
+   "keys": [
+    {
+     "id": "room_key_4",
+     "name": "Oda Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Ekipman Mağazası'nın kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_weapon_shop_west",
+   "name": "Silah Dükkânı: Batı",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 3,
+   "value": 5,
+   "loot": [
+    {
+     "id": "rifle_ammo_1",
+     "name": "Saldırı Tüfeği Mermisi",
+     "value": 1
+    },
+    {
+     "id": "weapon_cleaning_2",
+     "name": "Profesyonel Silah Temizleme Seti",
+     "value": 3
+    },
+    {
+     "id": "rc556_m3",
+     "name": "RC 5.56 Mk3",
+     "value": 4
+    },
+    {
+     "id": "weapon_trinket_3",
+     "name": "Drone Kumandası",
+     "value": 5
+    }
+   ],
+   "tip": "Drone Kumandası çok değerli. Silah dükkânı soygunu polisi hızlı çeker.",
+   "keys": [
+    {
+     "id": "room_key_1",
+     "name": "Oda Anahtarı",
+     "desc": "Sunny Beach'teki Silah Dükkânı'nın kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_weapon_shop_east",
+   "name": "Silah Dükkânı: Doğu",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 3,
+   "value": 5,
+   "loot": [
+    {
+     "id": "rifle_ammo_1",
+     "name": "Saldırı Tüfeği Mermisi",
+     "value": 1
+    },
+    {
+     "id": "weapon_cleaning_2",
+     "name": "Profesyonel Silah Temizleme Seti",
+     "value": 3
+    },
+    {
+     "id": "rc556_m3",
+     "name": "RC 5.56 Mk3",
+     "value": 4
+    },
+    {
+     "id": "weapon_trinket_3",
+     "name": "Drone Kumandası",
+     "value": 5
+    }
+   ],
+   "tip": "RC 5.56 Mk3 ve Drone Kumandası çıkabilir.",
+   "keys": [
+    {
+     "id": "room_key_3",
+     "name": "Oda Anahtarı",
+     "desc": "Şehir Merkezi'ndeki Silah Dükkânı'nın kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_hotel_seasons",
+   "name": "Seasons Otel",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "toy_2",
+     "name": "CollectiToy #2 Figür",
+     "value": 3
+    },
+    {
+     "id": "lighter_3",
+     "name": "RedOlive Çakmak",
+     "value": 2
+    },
+    {
+     "id": "poker_cards_3",
+     "name": "Ace's Dominion Destesi",
+     "value": 2
+    },
+    {
+     "id": "vinyl_1",
+     "name": "Platin Plak",
+     "value": 4
+    }
+   ],
+   "tip": "Platin Plak ve koleksiyon figürleri; oda anahtarı otellerden birini açar.",
+   "keys": [
+    {
+     "id": "safe_key_1",
+     "name": "Kasa Anahtarı",
+     "desc": "Sunny Beach'teki Seasons Otel'in kasasını açar."
+    },
+    {
+     "id": "room_key_12",
+     "name": "Oda Anahtarı",
+     "desc": "Sunny Beach'teki Otellerden birindeki kilitli odayı açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_hotel_reef",
+   "name": "Reef Otel",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "toy_2",
+     "name": "CollectiToy #2 Figür",
+     "value": 3
+    },
+    {
+     "id": "lighter_3",
+     "name": "RedOlive Çakmak",
+     "value": 2
+    },
+    {
+     "id": "poker_cards_3",
+     "name": "Ace's Dominion Destesi",
+     "value": 2
+    },
+    {
+     "id": "vinyl_1",
+     "name": "Platin Plak",
+     "value": 4
+    }
+   ],
+   "tip": "Seasons ile aynı ganimet; ikisini aynı turda yap.",
+   "keys": [
+    {
+     "id": "safe_key_2",
+     "name": "Kasa Anahtarı",
+     "desc": "Sunny Beach'teki Reef Otel'in kasasını açar."
+    },
+    {
+     "id": "room_key_12",
+     "name": "Oda Anahtarı",
+     "desc": "Sunny Beach'teki Otellerden birindeki kilitli odayı açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_strip_club",
+   "name": "Striptiz Kulübü",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 3,
+   "value": 3,
+   "loot": [
+    {
+     "id": "cash_1",
+     "name": "Nakit",
+     "value": 3
+    },
+    {
+     "id": "poker_cards_2",
+     "name": "Mystic Card Chronicles Destesi",
+     "value": 3
+    },
+    {
+     "id": "condoms_4",
+     "name": "LUX Prezervatif",
+     "value": 2
+    },
+    {
+     "id": "alcohol_5",
+     "name": "Golden Jaguar Şişesi",
+     "value": 3
+    }
+   ],
+   "tip": "Nakit ve VIP oda; kasa anahtarı ile birlikte iyi bir orta seviye hedef.",
+   "keys": [
+    {
+     "id": "safe_key_3",
+     "name": "Kasa Anahtarı",
+     "desc": "Striptiz Kulübü'nün kasasını açar."
+    },
+    {
+     "id": "room_key_13",
+     "name": "Oda Anahtarı",
+     "desc": "Striptiz Kulübü'ndeki VIP odayı açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_jewelry_store_west",
+   "name": "Kuyumcu: Batı",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 3,
+   "value": 5,
+   "loot": [
+    {
+     "id": "necklace_2",
+     "name": "GUDDI Kolye",
+     "value": 3
+    },
+    {
+     "id": "watch_4",
+     "name": "NURDAN Saat",
+     "value": 4
+    },
+    {
+     "id": "ring_5",
+     "name": "MAFFI Yüzük",
+     "value": 3
+    },
+    {
+     "id": "earrings_2",
+     "name": "AMINA Küpe",
+     "value": 5
+    }
+   ],
+   "tip": "Vitrin camını kırmak alarmı çaldırır; önce elektrik panosunu zorla, sonra hızlı topla.",
+   "keys": [],
+   "needs": []
+  },
+  {
+   "id": "city_jewelry_store_east",
+   "name": "Kuyumcu: Doğu",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 3,
+   "value": 5,
+   "loot": [
+    {
+     "id": "necklace_2",
+     "name": "GUDDI Kolye",
+     "value": 3
+    },
+    {
+     "id": "watch_4",
+     "name": "NURDAN Saat",
+     "value": 4
+    },
+    {
+     "id": "ring_5",
+     "name": "MAFFI Yüzük",
+     "value": 3
+    },
+    {
+     "id": "earrings_2",
+     "name": "AMINA Küpe",
+     "value": 5
+    }
+   ],
+   "tip": "Mücevherler küçük ve değerli; çanta yerini verimli kullanır.",
+   "keys": [],
+   "needs": []
+  },
+  {
+   "id": "city_house_6",
+   "name": "Yazlık",
+   "area": "Loraine Hills (seçkin yazlıklar)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "perfume_2",
+     "name": "FLERS Parfüm",
+     "value": 3
+    },
+    {
+     "id": "baseball_card_5",
+     "name": "Bradley Sanderson Kartı",
+     "value": 4
+    },
+    {
+     "id": "comics_3",
+     "name": "DIGITAL SOUL Çizgi Romanı",
+     "value": 3
+    },
+    {
+     "id": "journal_5",
+     "name": "OPALINE Dergisi",
+     "value": 4
+    }
+   ],
+   "tip": "Yazlıklar sessiz; Maymuncuk ile alarmsız gir.",
+   "keys": [
+    {
+     "id": "safe_key_14",
+     "name": "Kasa Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kasasını açar."
+    },
+    {
+     "id": "room_key_7",
+     "name": "Oda Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kilitli odasını açar."
+    },
+    {
+     "id": "vip_key_3",
+     "name": "Kartlı Anahtar",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_house_8",
+   "name": "Yazlık",
+   "area": "Loraine Hills (seçkin yazlıklar)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "perfume_2",
+     "name": "FLERS Parfüm",
+     "value": 3
+    },
+    {
+     "id": "baseball_card_5",
+     "name": "Bradley Sanderson Kartı",
+     "value": 4
+    },
+    {
+     "id": "comics_3",
+     "name": "DIGITAL SOUL Çizgi Romanı",
+     "value": 3
+    },
+    {
+     "id": "journal_5",
+     "name": "OPALINE Dergisi",
+     "value": 4
+    }
+   ],
+   "tip": "Koleksiyon kartları ve dergiler yüksek fiyatlı.",
+   "keys": [
+    {
+     "id": "safe_key_14",
+     "name": "Kasa Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kasasını açar."
+    },
+    {
+     "id": "room_key_7",
+     "name": "Oda Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kilitli odasını açar."
+    },
+    {
+     "id": "vip_key_3",
+     "name": "Kartlı Anahtar",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_luxury_cottage",
+   "name": "Seçkin Yazlık",
+   "area": "Loraine Hills (seçkin yazlıklar)",
+   "risk": 2,
+   "value": 4,
+   "loot": [
+    {
+     "id": "perfume_2",
+     "name": "FLERS Parfüm",
+     "value": 3
+    },
+    {
+     "id": "baseball_card_5",
+     "name": "Bradley Sanderson Kartı",
+     "value": 4
+    },
+    {
+     "id": "comics_3",
+     "name": "DIGITAL SOUL Çizgi Romanı",
+     "value": 3
+    },
+    {
+     "id": "journal_5",
+     "name": "OPALINE Dergisi",
+     "value": 4
+    }
+   ],
+   "tip": "Seçkin yazlık; aynı ganimet havuzu.",
+   "keys": [
+    {
+     "id": "safe_key_14",
+     "name": "Kasa Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kasasını açar."
+    },
+    {
+     "id": "room_key_7",
+     "name": "Oda Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kilitli odasını açar."
+    },
+    {
+     "id": "vip_key_3",
+     "name": "Kartlı Anahtar",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kilitli odasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_drug_house",
+   "name": "Yazlık",
+   "area": "Loraine Hills (seçkin yazlıklar)",
+   "risk": 3,
+   "value": 4,
+   "loot": [
+    {
+     "id": "perfume_2",
+     "name": "FLERS Parfüm",
+     "value": 3
+    },
+    {
+     "id": "comics_2",
+     "name": "TADASHI Çizgi Romanı",
+     "value": 2
+    },
+    {
+     "id": "drugs_1",
+     "name": "Toz",
+     "value": 4
+    },
+    {
+     "id": "journal_4",
+     "name": "VELVET RIOT Dergisi",
+     "value": 3
+    }
+   ],
+   "tip": "Toz (uyuşturucu) çıkabilir; değeri yüksek.",
+   "keys": [
+    {
+     "id": "safe_key_14",
+     "name": "Kasa Anahtarı",
+     "desc": "Loraine Hills'teki Yazlık Evler'den birinin kasasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_mansion",
+   "name": "Soylu Malikanesi",
+   "area": "Loraine Hills (seçkin yazlıklar)",
+   "risk": 3,
+   "value": 4,
+   "loot": [
+    {
+     "id": "perfume_2",
+     "name": "FLERS Parfüm",
+     "value": 3
+    },
+    {
+     "id": "baseball_card_5",
+     "name": "Bradley Sanderson Kartı",
+     "value": 4
+    },
+    {
+     "id": "comics_3",
+     "name": "DIGITAL SOUL Çizgi Romanı",
+     "value": 3
+    },
+    {
+     "id": "journal_5",
+     "name": "OPALINE Dergisi",
+     "value": 4
+    }
+   ],
+   "tip": "Malikane kasası Kasa Anahtarı ile açılır.",
+   "keys": [
+    {
+     "id": "safe_key_7",
+     "name": "Kasa Anahtarı",
+     "desc": "Loraine Hills'teki Malikane'nin kasasını açar."
+    }
+   ],
+   "needs": []
+  },
+  {
+   "id": "city_gallery",
+   "name": "Sanat Galerisi",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 4,
+   "value": 4,
+   "loot": [
+    {
+     "id": "antique_1",
+     "name": "Tanrı Heykeli",
+     "value": 3
+    },
+    {
+     "id": "antique_2",
+     "name": "Altın Kedi Heykeli",
+     "value": 4
+    },
+    {
+     "id": "antique_4",
+     "name": "Taş Kız Heykeli",
+     "value": 4
+    },
+    {
+     "id": "picture_tube_3",
+     "name": "Tablo",
+     "value": null
+    }
+   ],
+   "tip": "Sergideki eser için Cam Kesici şart (dolu Şifre Tableti ile takas). Soygun bütün şehre duyurulur.",
+   "keys": [
+    {
+     "id": "vip_key_6",
+     "name": "Kartlı Anahtar",
+     "desc": "Galeri'deki kasa dairesini açar."
+    }
+   ],
+   "needs": [
+    {
+     "id": "glass_cutter_1",
+     "name": "Cam Kesici",
+     "how": "Şüpheli Kapı'da dolu Şifre Tableti ile takas edilir. Sanat Galerisi eseri için şart."
+    }
+   ]
+  },
+  {
+   "id": "city_hotel_grand",
+   "name": "Grand Hotel",
+   "area": "Sunny Beach (tatil bölgesi, batı)",
+   "risk": 4,
+   "value": 5,
+   "loot": [
+    {
+     "id": "necklace_6",
+     "name": "PENARAI Kolye",
+     "value": 5
+    },
+    {
+     "id": "watch_5",
+     "name": "POLEX Saat",
+     "value": 5
+    },
+    {
+     "id": "ring_6",
+     "name": "PRIDE Yüzük",
+     "value": 5
+    },
+    {
+     "id": "earrings_2",
+     "name": "AMINA Küpe",
+     "value": 5
+    }
+   ],
+   "tip": "Sergideki araba için Sinyal Bozucu gerekir; gizli depo Kartlı Anahtar ile açılır. Şehir haberdar olur.",
+   "keys": [
+    {
+     "id": "vip_key_1",
+     "name": "Kartlı Anahtar",
+     "desc": "Sunny Beach'teki Grand Hotel'in gizli deposunu açar."
+    }
+   ],
+   "needs": [
+    {
+     "id": "auto_flipper_1",
+     "name": "Sinyal Bozucu",
+     "how": "Takas ile edinilir. Grand Hotel'deki sergi arabası için şart."
+    }
+   ]
+  },
+  {
+   "id": "city_bank",
+   "name": "Looty Bay Bankası",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 5,
+   "value": 5,
+   "loot": [
+    {
+     "id": "cash_1",
+     "name": "Nakit",
+     "value": 3
+    },
+    {
+     "id": "gemstone_3",
+     "name": "Kutuda Yakut",
+     "value": 4
+    },
+    {
+     "id": "gold_bar_1",
+     "name": "Altın Külçe",
+     "value": 5
+    }
+   ],
+   "tip": "Banka Kasası Matkap ister (dolu USB Hackleme Aracı ile takas). Matkap kurulunca herkes haberdar olur; grupla git. Kiralık kasalar Kiralık Kasa Anahtarları'nı doldurur → altın kasası Kimlik Kartı.",
+   "keys": [
+    {
+     "id": "vip_key_5",
+     "name": "Kimlik Kartı",
+     "desc": "Banka'daki altın kasasını açar."
+    }
+   ],
+   "needs": [
+    {
+     "id": "drill_1",
+     "name": "Matkap",
+     "how": "Şüpheli Kapı'da (Lenny's Motel) dolu USB Hackleme Aracı ile takas edilir. Banka Kasası için şart."
+    }
+   ]
+  },
+  {
+   "id": "city_police_station",
+   "name": "Karakol",
+   "area": "Şehir Merkezi (iş bölgesi, doğu)",
+   "risk": 5,
+   "value": 4,
+   "loot": [
+    {
+     "id": "cash_1",
+     "name": "Nakit",
+     "value": 3
+    },
+    {
+     "id": "drugs_1",
+     "name": "Toz",
+     "value": 4
+    },
+    {
+     "id": "rc556_m3",
+     "name": "RC 5.56 Mk3",
+     "value": 4
+    }
+   ],
+   "tip": "Cephanelik Kimlik Kartı ister (Delil ile takas). En riskli hedef; sadece güçlü bir grupla.",
+   "keys": [
+    {
+     "id": "vip_key_2",
+     "name": "Kartlı Anahtar",
+     "desc": "Karakol'daki kilitli odayı açar."
+    },
+    {
+     "id": "vip_key_4",
+     "name": "Kimlik Kartı",
+     "desc": "Karakol'daki cephaneliği açar."
+    }
+   ],
+   "needs": []
+  }
+ ],
+ "tools": [
+  {
+   "id": "lockpick_1",
+   "name": "Maymuncuk",
+   "how": "Karaborsa'dan alınır. Kapıları alarmsız açar; ilk alman gereken alet."
+  },
+  {
+   "id": "mini_drill_1",
+   "name": "Mini Matkap",
+   "how": "Kasa kilitlerini anahtarsız açar. Kasa anahtarı bulamadığın kasalar için."
+  },
+  {
+   "id": "drill_1",
+   "name": "Matkap",
+   "how": "Şüpheli Kapı'da (Lenny's Motel) dolu USB Hackleme Aracı ile takas edilir. Banka Kasası için şart."
+  },
+  {
+   "id": "glass_cutter_1",
+   "name": "Cam Kesici",
+   "how": "Şüpheli Kapı'da dolu Şifre Tableti ile takas edilir. Sanat Galerisi eseri için şart."
+  },
+  {
+   "id": "auto_flipper_1",
+   "name": "Sinyal Bozucu",
+   "how": "Takas ile edinilir. Grand Hotel'deki sergi arabası için şart."
+  },
+  {
+   "id": "vip_key_5",
+   "name": "Kimlik Kartı",
+   "how": "Dolu Kiralık Kasa Anahtarları ile takas edilir. Bankanın altın kasasını açar."
+  },
+  {
+   "id": "vip_key_4",
+   "name": "Kimlik Kartı",
+   "how": "Delil ile takas edilir. Karakol cephaneliğini açar."
+  },
+  {
+   "id": "usb_1_cumulative",
+   "name": "USB Hackleme Aracı",
+   "how": "Kilitli odalardaki bilgisayarları hackleyerek dolar → Matkap ile takas."
+  },
+  {
+   "id": "tablet_1_cumulative",
+   "name": "Şifre Tableti",
+   "how": "Looty Bay'deki kasaları kırarak dolar → Cam Kesici ile takas."
+  },
+  {
+   "id": "deposit_box_1_cumulative",
+   "name": "Kiralık Kasa Anahtarları",
+   "how": "Bankadaki kiralık kasaları kırarak dolar → altın kasası Kimlik Kartı ile takas."
+  },
+  {
+   "id": "police_evidence_1",
+   "name": "Delil",
+   "how": "Karakol cephaneliği Kimlik Kartı ile takas edilir."
+  }
+ ],
+ "stages": [
+  {
+   "id": "s0",
+   "title": "Sıfırdan Başlangıç",
+   "goal": "İlk nakdi kazan",
+   "steps": [
+    "Lenny ile konuş, araç kirala ve Looty Bay'e git",
+    "Issız bir yerde maske tak (Suçlu ol)",
+    "Market, kafe veya benzin istasyonundan ucuz eşya çal",
+    "Şehirden canlı çık ve Çalıntı Alıcısı'na sat"
+   ],
+   "tips": [
+    "Suçluyken ölürsen çantandaki her şey gider: küçük ama sık soygun yap",
+    "Polis yaklaşırsa teslim ol [Q]: sadece çanta gider, ekipman kalır",
+    "Tek Başına (Zor) mod Nam Sv.4'ten başlatır ama risklidir; ilk turlar için grupla ya da İkili modla gir"
+   ],
+   "targets": [
+    "city_mini_market_west",
+    "city_mini_market_east",
+    "city_cafe_pier",
+    "city_cafe_east",
+    "city_gas_station"
+   ]
+  },
+  {
+   "id": "s1",
+   "title": "İlk Birikim",
+   "goal": "Banka hesabı ve kendi arsan",
+   "steps": [
+    "Looty Bay Bankası'nda hesap aç",
+    "Sevkiyatlar'dan 1. seviye Arsa Tapusu al",
+    "Sahibi olan bir yerleşimde boş arsaya tapuyu uygula",
+    "Aklama Masası'nda kirli parayı akla (hesaptaki para çalınamaz)",
+    "Karaborsa'dan Maymuncuk al"
+   ],
+   "tips": [
+    "Lenny'de aklama komisyonludur; kendi üssünde aklamak bedava",
+    "Ev olmadan kendi arabanı kullanamazsın, sadece kiralık"
+   ],
+   "targets": [
+    "city_pharmacy_shop_west",
+    "city_pharmacy_shop_east",
+    "city_electronics_store_west",
+    "city_house_6",
+    "city_house_8"
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "Üs Kurulumu",
+   "goal": "Üssünü para makinesine çevir",
+   "steps": [
+    "Anahtar Dolabı'na kendi arabanı koy (satın alınan araba ölünce kaybolmaz)",
+    "Arabada önce Bagaj Çantaları yükseltmesi",
+    "Kargo Tezgâhı ve raflar kur",
+    "Aklama Masası'na Para Sayma Makinesi tak",
+    "Koleksiyon Masası kur ve koleksiyon paketle",
+    "Mini Matkap al: anahtarsız kasalar açılır"
+   ],
+   "tips": [
+    "Koleksiyon, eşyaları tek tek satmaktan daha kârlıdır",
+    "Kasaları kırmak Şifre Tableti'ni doldurur (ileride Cam Kesici)"
+   ],
+   "targets": [
+    "city_hotel_seasons",
+    "city_hotel_reef",
+    "city_equipment_store_west",
+    "city_luxury_cottage"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Orta Seviye",
+   "goal": "Pasif gelir ve 2. seviye bölge",
+   "steps": [
+    "Kaçak Mal Tezgâhı kur: Lenny'den/Satış Merkezi'nden kaçak mal al, yeniden paketle, Looty Bay'de sat",
+    "Yetiştirme Odası veya Kimya Laboratuvarı kur",
+    "2. seviye Arsa Tapusu ile daha yüksek seviyeli bölgeye taşın (yeni sevkiyatlar açılır)",
+    "Üs savunması için Güvenlik Sistemi'ne Elektronik Sigorta tak"
+   ],
+   "tips": [
+    "Yeniden paketlenmiş kargo çok daha pahalıya satılır",
+    "Toplu kargo teslimatı riskli ama daha kârlı"
+   ],
+   "targets": [
+    "city_strip_club",
+    "city_jewelry_store_west",
+    "city_jewelry_store_east",
+    "city_weapon_shop_west",
+    "city_weapon_shop_east",
+    "city_mansion",
+    "city_drug_house"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Büyük İşler",
+   "goal": "Şehri sarsan soygunlar",
+   "steps": [
+    "Kilitli odalardaki bilgisayarlarla USB Hackleme Aracı'nı doldur → Matkap ile takas → Banka Kasası",
+    "Kiralık kasalarla Kiralık Kasa Anahtarları'nı doldur → Kimlik Kartı → altın kasası",
+    "Şifre Tableti'ni doldur → Cam Kesici → Sanat Galerisi eseri",
+    "Sinyal Bozucu ile Grand Hotel sergi arabası"
+   ],
+   "tips": [
+    "Bu soygunlarda bütün şehir haberdar olur: grupla git, kaçış aracını hazır tut",
+    "Tutuklanırsan banka hesabından rüşvet teklif edebilirsin"
+   ],
+   "targets": [
+    "city_bank",
+    "city_gallery",
+    "city_hotel_grand",
+    "city_police_station"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "İmparatorluk",
+   "goal": "Klan, bölge ve Gölge Vali",
+   "steps": [
+    "Klan kur (banka hesabı şart)",
+    "Şehirdeki işletmeler için talepte bulun ve çatışmayı kazan",
+    "Yerleşim Tapusu ile sahipsiz bir yerleşim satın al: sakinlerden vergi topla",
+    "Komşu bölgeleri kontrol ederek Highlands'e ilerle: lider Gölge Vali olur"
+   ],
+   "tips": [
+    "Hapis süresi nüfuzdur: daha uzun ceza yeni dövmeleri ve Sevkiyatlar'daki özel eşyaları açar",
+    "Klan hesabına aktarılan para geri alınamaz"
+   ],
+   "targets": []
+  }
+ ],
+ "upgrades": [
+  {
+   "name": "Banka hesabı",
+   "why": "Aklama, nakit güvenliği, klan ve döviz için şart"
+  },
+  {
+   "name": "Arsa Tapusu + arsa",
+   "why": "Kendi üssün, Karaborsa erişimi ve bedava aklama"
+  },
+  {
+   "name": "Maymuncuk",
+   "why": "Kapıları alarmsız açar; soygun riskini en çok düşüren alet"
+  },
+  {
+   "name": "Kendi araban + Bagaj Çantaları",
+   "why": "Daha fazla ganimet taşırsın, araba ölünce kaybolmaz"
+  },
+  {
+   "name": "Mini Matkap",
+   "why": "Anahtarsız kasaları açar; Şifre Tableti'ni doldurur"
+  },
+  {
+   "name": "Kargo Tezgâhı",
+   "why": "Çalıntı kargoyu açıp içindekileri tek tek satarsın"
+  },
+  {
+   "name": "Para Sayma Makinesi",
+   "why": "Aklama hızını artırır"
+  },
+  {
+   "name": "Koleksiyon Masası",
+   "why": "Eşyaları koleksiyon olarak paketleyip daha pahalıya satarsın"
+  },
+  {
+   "name": "Kaçak Mal Tezgâhı",
+   "why": "Ucuz kaçak malı pahalı kargoya dönüştürür"
+  },
+  {
+   "name": "MK2/MK3 silah ve çelik yelek",
+   "why": "Büyük işler ve klan çatışmaları için"
+  },
+  {
+   "name": "Güvenlik Sistemi (Sigorta, Alarm)",
+   "why": "Üssünü baskınlara karşı korur"
+  },
+  {
+   "name": "Üst seviye bölgeye taşınma",
+   "why": "Üst düzey sevkiyatlar ve daha iyi aklama"
+  }
+ ]
+}

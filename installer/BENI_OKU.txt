@@ -1,0 +1,31 @@
+ROB RUN - TÜRKÇE YAMA + SUÇ REHBERİ  (v1.0.0)
+=============================================
+
+KURULUM
+- RobRun_Turkce.exe dosyasını açın ve "Kur ve Oyunu Başlat" butonuna basın.
+- İlk kurulum yaklaşık 15-60 saniye sürer (Türkçe fontlar hazırlanır).
+- Oyun güncellendiğinde program "Oyun güncellenmiş" uyarısı verir: tekrar "Kur" demeniz yeterlidir.
+
+NELER VAR?
+- Oyunun neredeyse tamamı Türkçe: menüler, ayarlar, eşyalar, diyaloglar, ipuçları.
+- Oyunun fontlarına Türkçe harfler (İ ı Ş ş Ğ ğ) eklenir. Türkçe Windows'ta İngilizce
+  yazılarda görülen harf kaybolma sorunu da düzelir.
+- Oyun içi rehber: mekân, anahtar ve değerli eşya açıklamalarında
+  "REHBER" satırı (değer, risk, gereken alet/anahtar, bulunduğu yer).
+- Programdaki Rehber sekmeleri:
+  * İlerleme Planım: neye sahip olduğunuzu işaretleyin, sıradaki adımları ve size
+    uygun soygun hedeflerini görün.
+  * Soygun Hedefleri: Looty Bay'deki tüm mekânlar, ganimet, değer/risk, anahtarlar.
+  * Anahtar ve Aletler: hangi anahtar nereyi açar, Matkap / Cam Kesici gibi aletler nasıl alınır.
+  * Yükseltmeler: mantıklı satın alma sırası.
+
+GÜVENLİK
+- Oyun klasöründeki hiçbir dosya değiştirilmez. Yama yalnızca
+  %USERPROFILE%\AppData\LocalLow\Kefir\ROB RUN\com.unity.addressables
+  önbelleğine kurulur.
+
+KALDIRMA
+- Programda "Yamayı Kaldır" butonuna basın; oyun orijinal İngilizce hâline döner.
+
+NOT
+- Gerçek eşya fiyatları oyun sunucusundan geldiği için rehberdeki değerler 1-5 ölçeğindedir.

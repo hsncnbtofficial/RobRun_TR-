@@ -1,0 +1,26 @@
+# --- Python / build ---
+.venv/
+__pycache__/
+*.pyc
+build_tmp/
+dist/
+release/
+*.spec
+
+# --- Generated from the user's own game install (game content, © Kefir) ---
+# These are rebuilt at runtime from the player's copy of the game and must not be redistributed.
+out/
+work/
+data/strings_en.json
+data/game_data.json
+*.bundle
+
+# --- Local / personal ---
+.claude/
+*.log
+
+# --- Leftovers from early experiments ---
+/fonts.py
+/src/
+/Turkce_Kur_ve_Baslat.bat
+/Turkce_Yamayi_Kaldir.bat
